@@ -24,7 +24,7 @@ class ImagiCkaptcha extends Image
      */
     protected function generateImage($id, $word)
     {
-	// Fallback to GD-based captcha when imagick is not installed
+        // Fallback to GD-based captcha when imagick is not installed
         if (!extension_loaded("imagick")) {
             return parent::generateImage($id, $word);
         }
@@ -41,7 +41,7 @@ class ImagiCkaptcha extends Image
 
         $img_file   = $this->getImgDir() . $id . $this->getSuffix();
 
-        if(empty($this->startImage)) {
+        if (empty($this->startImage)) {
             $img = new Imagick();
             $img->newImage($w, $h, new ImagickPixel('#FFFFFF'), 'png');
         } else {
@@ -62,12 +62,12 @@ class ImagiCkaptcha extends Image
         $noise = new ImagickDraw();
         $noise->setFilLColor('#000000');
         for ($i=0; $i<$this->dotNoiseLevel; $i++) {
-            $x = mt_rand(0,$w);
-            $y = mt_rand(0,$h);
+            $x = mt_rand(0, $w);
+            $y = mt_rand(0, $h);
             $noise->circle($x, $y, $x+mt_rand(0.3, 1.7), $y+mt_rand(0.3, 1.7));
         }        
-        for($i=0; $i<$this->lineNoiseLevel; $i++) {
-            $noise->line(mt_rand(0,$w), mt_rand(0,$h), mt_rand(0,$w), mt_rand(0,$h));
+        for ($i=0; $i<$this->lineNoiseLevel; $i++) {
+            $noise->line(mt_rand(0, $w), mt_rand(0, $h), mt_rand(0, $w), mt_rand(0, $h));
         }
         
         $img->waveImage(5, mt_rand(60, 100));
