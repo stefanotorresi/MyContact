@@ -1,0 +1,30 @@
+{
+    "name": "stefanotorresi/MyContact",
+    "description": "Contact form ZF2 module based on Matthew Weier O'Phinney's PhlyContact",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "zend",
+        "module"
+    ],
+    "homepage": "https://github.com/stefanotorresi/MyContact",
+    "authors": [
+        {
+            "name": "Stefano Torresi",
+            "email": "webdev@stefanotorresi.it",
+            "homepage": "http://stefanotorresi.it"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "MyContact": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    }
+}
