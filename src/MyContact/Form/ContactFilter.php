@@ -28,7 +28,7 @@ class ContactFilter extends InputFilter
                 ),
             ),
         ));
-        
+
         $this->add(array(
             'name'       => 'email',
             'required'   => true,

@@ -19,15 +19,16 @@ class ContactFormFactory implements FactoryInterface
             $config = ArrayUtils::iteratorToArray($config);
         }
         $name    = $config['MyContact']['form']['name'];
-        
+
         Validator::setDefaultTranslator($services->get('translator'));
         Validator::setDefaultTranslatorTextDomain('zend_validate');
-        
+
         $captcha = $services->get('MyContactCaptcha');
-        
+
         $filter  = new ContactFilter();
         $form    = new ContactForm($name, $captcha);
         $form->setInputFilter($filter);
+
         return $form;
     }
 }

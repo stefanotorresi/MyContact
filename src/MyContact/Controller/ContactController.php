@@ -14,16 +14,16 @@ class ContactController extends AbstractActionController
      * @var ContactForm
      */
     protected $form;
-    
+
     /**
      *
      * @var Message
      */
     protected $message;
-    
+
     /**
      *
-     * @var Transport\TransportInterface 
+     * @var Transport\TransportInterface
      */
     protected $transport;
 
@@ -32,17 +32,17 @@ class ContactController extends AbstractActionController
         $model = new ViewModel( array(
             'contactForm' => $this->form,
         ));
-        
+
         if ($this->getRequest()->isXmlHttpRequest()) {
             $model->setTemplate('my-contact/contact/form')->setTerminal(true);
         }
-        
+
         return $model;
     }
 
     public function processAction()
     {
-        
+
         if (!$this->request->isPost()) {
             return $this->redirect()->toRoute('contact');
         }
@@ -58,9 +58,10 @@ class ContactController extends AbstractActionController
             $model
                 ->setTemplate('my-contact/contact/form')
                 ->setTerminal($this->getRequest()->isXmlHttpRequest());
+
             return $model;
         }
-        
+
         // send email...
         $this->sendEmail($form->getData());
 

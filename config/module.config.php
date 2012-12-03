@@ -22,9 +22,9 @@ return array(
         'mail_transport' => array(
             'class' => 'Zend\Mail\Transport\Sendmail',
             'options' => array(
-            )      
+            )
         ),
-        'message' => array(            
+        'message' => array(
 //            'subject_prefix' => '',
 //            'to' => array(
 //                'EMAIL HERE' => 'NAME HERE',

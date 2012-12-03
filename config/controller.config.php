@@ -2,7 +2,7 @@
 
 namespace MyContact;
 
-return array(    
+return array(
     'factories' => array(
         'MyContact\Controller\Contact' => 'MyContact\Service\ContactControllerFactory',
     ),

@@ -41,7 +41,7 @@ class ContactForm extends Form
                 'class'         => 'text'
             ),
         ));
-        
+
         $this->add(array(
             'name' => 'email',
             'type' => 'Zend\Form\Element\Text',
@@ -67,7 +67,6 @@ class ContactForm extends Form
                 'class'         => 'text'
             ),
         ));
-
 
         $this->add(array(
             'name'  => 'body',

@@ -19,6 +19,7 @@ class ContactCaptchaFactory implements FactoryInterface
         $spec    = $config['MyContact']['captcha'];
         $captcha = CaptchaFactory::factory($spec);
         $captcha->setTranslatorTextDomain('zend_captcha');
+
         return $captcha;
     }
 }

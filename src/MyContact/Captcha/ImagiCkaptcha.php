@@ -15,11 +15,11 @@ use Zend\Captcha\Exception;
 
 class ImagiCkaptcha extends Image
 {
-    
+
     /**
      * Generate image captcha
      *
-     * @param string $id Captcha ID
+     * @param string $id   Captcha ID
      * @param string $word Captcha word
      */
     protected function generateImage($id, $word)
@@ -48,7 +48,7 @@ class ImagiCkaptcha extends Image
             $img = new Imagick($this->startImage);
             $w = $img->getImageWidth();
             $h = $img->getImageHeight();
-        }                
+        }
 
         $text = new ImagickDraw();
         $text->setFillColor('#000000');
@@ -65,17 +65,17 @@ class ImagiCkaptcha extends Image
             $x = mt_rand(0, $w);
             $y = mt_rand(0, $h);
             $noise->circle($x, $y, $x+mt_rand(0.3, 1.7), $y+mt_rand(0.3, 1.7));
-        }        
+        }
         for ($i=0; $i<$this->lineNoiseLevel; $i++) {
             $noise->line(mt_rand(0, $w), mt_rand(0, $h), mt_rand(0, $w), mt_rand(0, $h));
         }
-        
+
         $img->waveImage(5, mt_rand(60, 100));
-        $img->drawImage($noise);        
+        $img->drawImage($noise);
         $img->swirlImage(mt_rand(10, 30));
 
         file_put_contents($img_file, $img);
         unset($img);
     }
-    
+
 }

@@ -23,7 +23,7 @@ class ContactMailMessageFactory implements FactoryInterface
         if (isset($config['subject_prefix'])) {
             $message->setSubject($config['subject_prefix']);
         }
-        
+
         if (isset($config['to'])) {
             $message->addTo($config['to']);
         }
