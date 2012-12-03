@@ -71,7 +71,7 @@ return array(
             array(
                 'type'          => 'gettext',
                 'base_dir'      => __DIR__ . '/../language',
-                'pattern'       => '%s/%s.mo',
+                'pattern'       => '%s.mo',
                 'text_domain'   => __NAMESPACE__
             ),
             array(
