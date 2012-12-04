@@ -48,6 +48,7 @@ class ContactController extends AbstractActionController
         }
 
         $model = new ViewModel();
+        $model->setTerminal($this->getRequest()->isXmlHttpRequest());
 
         $post = $this->request->getPost();
         $form = $this->form;
@@ -58,8 +59,7 @@ class ContactController extends AbstractActionController
                     'error' => true,
                     'contactForm'  => $form,
                 ))
-                ->setTemplate('my-contact/contact/form')
-                ->setTerminal($this->getRequest()->isXmlHttpRequest());
+                ->setTemplate('my-contact/contact/form');
 
             return $model;
         }
