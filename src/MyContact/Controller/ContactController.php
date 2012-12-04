@@ -47,15 +47,17 @@ class ContactController extends AbstractActionController
             return $this->redirect()->toRoute('contact');
         }
 
+        $model = new ViewModel();
+
         $post = $this->request->getPost();
         $form = $this->form;
         $form->setData($post);
+
         if (!$form->isValid()) {
-            $model = new ViewModel(array(
-                'error' => true,
-                'contactForm'  => $form,
-            ));
-            $model
+            $model->setVariables(array(
+                    'error' => true,
+                    'contactForm'  => $form,
+                ))
                 ->setTemplate('my-contact/contact/form')
                 ->setTerminal($this->getRequest()->isXmlHttpRequest());
 
@@ -65,7 +67,9 @@ class ContactController extends AbstractActionController
         // send email...
         $this->sendEmail($form->getData());
 
-        return $model->setTemplate('my-contact/contact/thank-you');
+        $model->setTemplate('my-contact/contact/thank-you');
+
+        return $model;
     }
 
     public function setContactForm(ContactForm $form)
