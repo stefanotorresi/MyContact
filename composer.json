@@ -1,5 +1,5 @@
 {
-    "name": "stefanotorresi/MyContact",
+    "name": "stefanotorresi/my-contact",
     "description": "A ZF2 contact form module based on Matthew Weier O'Phinney's PhlyContact",
     "type": "library",
     "keywords": [
