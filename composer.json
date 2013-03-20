@@ -16,8 +16,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "2.*"
+        "stefanotorresi/my-base": "dev-master"
     },
     "autoload": {
         "psr-0": {

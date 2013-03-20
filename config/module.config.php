@@ -5,7 +5,7 @@ namespace MyContact;
 return array(
     __NAMESPACE__ => array(
         'captcha'   => array(
-            'class'             => 'MyContact\Captcha\ImagiCkaptcha',
+            'class'             => 'MyBase\Captcha\ImagickCaptcha',
             'font'              => __DIR__ .'/../fonts/arial.ttf',
             'fontSize'          => 30,
             'imgDir'            => 'public/img/captcha/',
