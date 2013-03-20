@@ -3,7 +3,7 @@
 namespace MyContact\Form;
 
 use Zend\InputFilter\InputFilter;
-use Zend\Validator\Hostname as HostnameValidator;
+use Zend\Validator;
 
 class ContactFilter extends InputFilter
 {
@@ -36,7 +36,7 @@ class ContactFilter extends InputFilter
                 array(
                     'name'    => 'EmailAddress',
                     'options' => array(
-                        'allow'  => HostnameValidator::ALLOW_DNS,
+                        'allow'  => Validator\Hostname::ALLOW_DNS,
                         'domain' => true,
                     ),
                 ),
