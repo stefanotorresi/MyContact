@@ -56,10 +56,15 @@ class ContactController extends AbstractActionController
 
         if (!$form->isValid()) {
             $model->setVariables(array(
-                    'error' => true,
-                    'contactForm'  => $form,
-                ))
-                ->setTemplate('my-contact/contact/form');
+                'error' => true,
+                'contactForm'  => $form,
+            ));
+
+            if ($model->terminate()) {
+                $model->setTemplate('my-contact/contact/form');
+            } else {
+                $model->setTemplate('my-contact/contact/index');
+            }
 
             return $model;
         }
