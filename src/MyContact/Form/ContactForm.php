@@ -19,16 +19,18 @@ class ContactForm extends Form
             $this->captchaAdapter = $captchaAdapter;
         }
 
-        $this->init();
-    }
-
-    public function init()
-    {
         $name = $this->getName();
         if (null === $name) {
             $this->setName('contact');
         }
 
+        $this->addElements();
+
+        $this->setAttribute('method', \Zend\Http\Request::METHOD_POST);
+    }
+
+    public function addElements()
+    {
         $this->add(array(
             'name'  => 'name',
             'type' => 'Zend\Form\Element\Text',

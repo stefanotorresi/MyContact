@@ -42,11 +42,6 @@ class ContactController extends AbstractActionController
 
     public function processAction()
     {
-
-        if (!$this->request->isPost()) {
-            return $this->redirect()->toRoute('contact');
-        }
-
         $model = new ViewModel();
         $model->setTerminal($this->getRequest()->isXmlHttpRequest());
 

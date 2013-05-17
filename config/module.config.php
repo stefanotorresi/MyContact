@@ -42,16 +42,24 @@ return array(
                 'options' => array(
                     'route' => '/contact',
                     'defaults' => array(
-                        'controller'    => 'MyContact\Controller\Contact',
-                        'action'        => 'index',
+                        'controller' => 'MyContact\Controller\Contact',
                     ),
                 ),
-                'may_terminate' => true,
+                'may_terminate' => false,
                 'child_routes' => array(
-                    'process' => array(
-                        'type' => 'Literal',
+                    'index' => array(
+                        'type' => 'Method',
                         'options' => array(
-                            'route' => '/process',
+                            'verb' => 'get',
+                            'defaults' => array(
+                                'action' => 'index',
+                            ),
+                        ),
+                    ),
+                    'process' => array(
+                        'type' => 'Method',
+                        'options' => array(
+                            'verb' => 'post',
                             'defaults' => array(
                                 'action' => 'process',
                             ),

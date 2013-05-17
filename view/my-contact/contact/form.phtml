@@ -1,5 +1,5 @@
 <?php
-                
+
 $this->plugin('formLabel')->setTranslatorTextDomain('MyContact');
 $this->plugin('formInput')->setTranslatorTextDomain('MyContact');
 $this->plugin('formTextarea')->setTranslatorTextDomain('MyContact');
@@ -20,7 +20,7 @@ $contactForm->setAttribute('method', 'post');
         <?= $this->formInput($contactForm->get('name')); ?>
         <?= $this->formElementErrors($contactForm->get('name')); ?>
     </dd>
-    
+
     <dt><?= $this->formLabel($contactForm->get('email')); ?></dt>
     <dd>
         <?= $this->formInput($contactForm->get('email')); ?>
@@ -42,7 +42,7 @@ $contactForm->setAttribute('method', 'post');
     <dt class="captcha"><?= $this->formLabel($contactForm->get('captcha')); ?></dt>
     <dd class="captcha">
         <?= $this->formCaptcha($contactForm->get('captcha')); ?>
-        <a class="reload" href="<?=$this->url('contact')?>"><img width="24" height="24" src="<?=$this->basePath('img/reload.png')?>" alt="<?=$this->translate('Aggiorna')?>" title="<?=$this->translate('Aggiorna')?>"></a>
+        <a class="reload" href="<?=$this->url('contact/index')?>"><img width="24" height="24" src="<?=$this->basePath('img/reload.png')?>" alt="<?=$this->translate('Aggiorna')?>" title="<?=$this->translate('Aggiorna')?>"></a>
         <?= $this->formElementErrors($contactForm->get('captcha')); ?>
     </dd>
 
@@ -57,9 +57,9 @@ $contactForm->setAttribute('method', 'post');
 <script>
 $(function(){
     var $form = $("#<?=$contactForm->getAttribute('name')?>");
-    
+
     $form.ajaxForm({
-        beforeSubmit: function(data, $form, options) { 
+        beforeSubmit: function(data, $form, options) {
             $form.find('.loading').fadeIn('fast');
         },
         success: function(response, status, xhr, $form) {
@@ -73,7 +73,7 @@ $(function(){
             });
         }
     });
-    
+
     $form.find(".reload").click(function(){
         $form.find('.loading').fadeIn('fast');
         $.get(
@@ -89,6 +89,6 @@ $(function(){
         );
         return false;
     });
-    
+
 });
 </script>
