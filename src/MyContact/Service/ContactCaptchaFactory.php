@@ -18,6 +18,10 @@ class ContactCaptchaFactory implements FactoryInterface
         }
         $spec    = $config['MyContact']['captcha'];
         $captcha = CaptchaFactory::factory($spec);
+
+        $basePathHelper = $services->get('ViewHelperManager')->get('basePath');
+        $captcha->setImgUrl($basePathHelper($captcha->getImgUrl()));
+
         $captcha->setTranslatorTextDomain('zend_captcha');
 
         return $captcha;
