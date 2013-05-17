@@ -74,18 +74,6 @@ return array(
                 'pattern'       => '%s.mo',
                 'text_domain'   => __NAMESPACE__
             ),
-            array(
-                'type' => 'phpArray',
-                'base_dir'      => __DIR__ . '/../language',
-                'pattern'       => '%s/Zend_Captcha.php',
-                'text_domain'   => 'zend_captcha'
-            ),
-            array(
-                'type' => 'phpArray',
-                'base_dir'      => __DIR__ . '/../language',
-                'pattern'       => '%s/Zend_Validate.php',
-                'text_domain'   => 'zend_validate'
-            )
         ),
     ),
 );

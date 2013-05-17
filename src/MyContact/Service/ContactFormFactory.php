@@ -20,8 +20,7 @@ class ContactFormFactory implements FactoryInterface
         }
         $name    = $config['MyContact']['form']['name'];
 
-        Validator::setDefaultTranslator($services->get('translator'));
-        Validator::setDefaultTranslatorTextDomain('zend_validate');
+        Validator::setDefaultTranslator($services->get('translator'), 'zend_validate');
 
         $captcha = $services->get('MyContactCaptcha');
 
