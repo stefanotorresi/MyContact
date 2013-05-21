@@ -85,7 +85,7 @@ class ContactForm extends Form
         $captcha = new Element\Captcha('captcha');
         $captcha
             ->setCaptcha($this->captchaAdapter)
-            ->setOptions(array('label' => 'Ricopiate il codice nel campo a fianco'))
+            ->setOptions(array('label' => 'Copy the code in the field next to it'))
             ->setAttribute('id', $this->getName().'-captcha');
         $this->add($captcha);
 

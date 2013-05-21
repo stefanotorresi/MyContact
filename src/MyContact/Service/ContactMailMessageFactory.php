@@ -14,7 +14,7 @@ class ContactMailMessageFactory implements FactoryInterface
     {
         $globalConfig  = $services->get('config');
         if ($globalConfig instanceof Traversable) {
-            $globalConfig = ArrayUtils::iteratorToArray($config);
+            $globalConfig = ArrayUtils::iteratorToArray($globalConfig);
         }
         $config  = $globalConfig['MyContact']['message'];
 

@@ -1,10 +1,18 @@
-<?php 
+<?php
+/**
+ * @var $this Zend\View\Renderer\PhpRenderer
+ *
+ * @author Stefano Torresi (http://stefanotorresi.it)
+ * @license See the file LICENSE.txt for copying permission.
+ * ************************************************
+ */
+
 $this->plugin('translate')->setTranslatorTextDomain('MyContact');
 $this->plugin('headTitle')->setTranslatorTextDomain('MyContact');
 $this->headTitle()->prepend('Contact');
 $this->headTitle()->prepend('Thank You');
 ?>
 <div id="contact-form" class="thank-you">
-    <h2><?=$this->translate("Thank you")?>!</h2>
-    <p><?=$this->translate("Your message has been sent")?></p>
+    <h2><?= $this->translate("Thank you") ?>!</h2>
+    <p><?= $this->translate("Your message has been sent") ?></p>
 </div>
