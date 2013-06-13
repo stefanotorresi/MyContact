@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "stefanotorresi/my-base": "dev-master"
+        "stefanotorresi/my-base": "*"
     },
     "autoload": {
         "psr-0": {
