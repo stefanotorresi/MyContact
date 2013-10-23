@@ -18,6 +18,12 @@
     "require": {
         "stefanotorresi/my-base": "*"
     },
+    "extras": {
+        "branch-alias": {
+            "dev-master": "1.x-dev",
+            "dev-0.x": "0.x-dev" 
+        }
+    },
     "autoload": {
         "psr-0": {
             "MyContact": "src/"
