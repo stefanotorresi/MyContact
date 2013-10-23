@@ -89,8 +89,9 @@ return array(
 
     'asset_manager' => array(
         'resolver_configs' => array(
-            'paths' => array(
-                __DIR__ . '/../assets'
+            'map' => array(
+                'img/icon-reload.png' => __DIR__ . '/../assets/img/icon-reload.png',
+                'js/my-contact.js' => __DIR__ . '/../assets/js/my-contact.js',
             ),
         ),
     ),

@@ -1,0 +1,49 @@
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ *
+ * @author Stefano Torresi (http://stefanotorresi.it)
+ * @license See the file LICENSE.txt for copying permission.
+ * ************************************************
+ */
+
+/* @var \MyContact\Form\ContactForm $form */
+?>
+<dl>
+    <dt><?= $this->formLabel($form->get('name')); ?></dt>
+    <dd>
+        <?= $this->formInput($form->get('name')); ?>
+        <?= $this->formElementErrors($form->get('name')); ?>
+    </dd>
+
+    <dt><?= $this->formLabel($form->get('email')); ?></dt>
+    <dd>
+        <?= $this->formInput($form->get('email')); ?>
+        <?= $this->formElementErrors($form->get('email')); ?>
+    </dd>
+
+    <dt><?= $this->formLabel($form->get('subject')); ?></dt>
+    <dd>
+        <?= $this->formInput($form->get('subject')); ?>
+        <?= $this->formElementErrors($form->get('subject')); ?>
+    </dd>
+
+    <dt><?= $this->formLabel($form->get('body')); ?></dt>
+    <dd>
+        <?= $this->formTextarea($form->get('body')); ?>
+        <?= $this->formElementErrors($form->get('body')); ?>
+    </dd>
+
+    <dt class="captcha"><?= $this->formLabel($form->get('captcha')); ?></dt>
+    <dd class="captcha">
+        <?= $this->formCaptcha($form->get('captcha')); ?>
+        <a class="reload" href="<?=$this->url('contact/index')?>"><img width="24" height="24" src="<?=$this->basePath('img/icon-reload.png')?>" alt="<?=$this->translate('Aggiorna')?>" title="<?=$this->translate('Aggiorna')?>"></a>
+        <?= $this->formElementErrors($form->get('captcha')); ?>
+    </dd>
+
+    <dd>
+        <?= $this->formElement($form->get('myContatctCSRF')); ?>
+        <?= $this->formInput($form->get('submit')->setAttribute('value', $this->translate('Send', 'MyContact'))); ?>
+        <?= $this->formElementErrors($form->get('myContatctCSRF')); ?>
+    </dd>
+</dl>

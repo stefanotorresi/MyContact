@@ -25,4 +25,20 @@ return array(
             )
         ),
     ),
+
+    'asset_manager' => array(
+        'filters' => array(
+            'js/jquery.form.js' => array(
+                array( 'filter' => 'UglifyJS2' ),
+            ),
+        ),
+        'caching' => array(
+            'js/jquery.form.js' => array(
+                'cache' => 'FilePath',
+                'options' => array(
+                    'dir' => './data/cache',
+                ),
+            ),
+        ),
+    ),
 );
