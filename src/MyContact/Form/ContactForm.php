@@ -89,7 +89,7 @@ class ContactForm extends Form
             ->setAttribute('id', $this->getName().'-captcha');
         $this->add($captcha);
 
-        $this->add(new Element\Csrf('csrf'));
+        $this->add(new Element\Csrf('myContatctCSRF'));
 
         $this->add(array(
             'name' => 'submit',
