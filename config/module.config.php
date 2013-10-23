@@ -6,7 +6,7 @@ return array(
     __NAMESPACE__ => array(
         'captcha'   => array(
             'class'             => 'MyBase\Captcha\ImagickCaptcha',
-            'font'              => __DIR__ .'/../fonts/arial.ttf',
+            'font'              => __DIR__ .'/../assets/fonts/arial.ttf',
             'fontSize'          => 30,
             'imgDir'            => 'public/img/captcha/',
             'imgUrl'            => 'img/captcha/',
