@@ -42,7 +42,7 @@ $contactForm->setAttribute('method', 'post');
     <dt class="captcha"><?= $this->formLabel($contactForm->get('captcha')); ?></dt>
     <dd class="captcha">
         <?= $this->formCaptcha($contactForm->get('captcha')); ?>
-        <a class="reload" href="<?=$this->url('contact/index')?>"><img width="24" height="24" src="<?=$this->basePath('img/reload.png')?>" alt="<?=$this->translate('Aggiorna')?>" title="<?=$this->translate('Aggiorna')?>"></a>
+        <a class="reload" href="<?=$this->url('contact/index')?>"><img width="24" height="24" src="<?=$this->basePath('img/icon-reload.png')?>" alt="<?=$this->translate('Aggiorna')?>" title="<?=$this->translate('Aggiorna')?>"></a>
         <?= $this->formElementErrors($contactForm->get('captcha')); ?>
     </dd>
 
