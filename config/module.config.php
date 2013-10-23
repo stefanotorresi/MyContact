@@ -6,7 +6,7 @@ return array(
     __NAMESPACE__ => array(
         'captcha'   => array(
             'class'             => 'MyBase\Captcha\ImagickCaptcha',
-            'font'              => __DIR__ .'/../fonts/arial.ttf',
+            'font'              => __DIR__ .'/../assets/fonts/arial.ttf',
             'fontSize'          => 30,
             'imgDir'            => 'public/img/captcha/',
             'imgUrl'            => 'img/captcha/',
@@ -83,6 +83,15 @@ return array(
                 'base_dir'      => __DIR__ . '/../language',
                 'pattern'       => '%s.mo',
                 'text_domain'   => __NAMESPACE__
+            ),
+        ),
+    ),
+
+    'asset_manager' => array(
+        'resolver_configs' => array(
+            'map' => array(
+                'img/icon-reload.png' => __DIR__ . '/../assets/img/icon-reload.png',
+                'js/my-contact.js' => __DIR__ . '/../assets/js/my-contact.js',
             ),
         ),
     ),

@@ -1,94 +1,38 @@
 <?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ *
+ * @author Stefano Torresi (http://stefanotorresi.it)
+ * @license See the file LICENSE.txt for copying permission.
+ * ************************************************
+ */
+
+$this->placeHolder('MyContactForm')->captureStart('SET');
 
 $this->plugin('formLabel')->setTranslatorTextDomain('MyContact');
 $this->plugin('formInput')->setTranslatorTextDomain('MyContact');
 $this->plugin('formTextarea')->setTranslatorTextDomain('MyContact');
 $this->plugin('formElementErrors')->setTranslatorTextDomain('MyContact')->setAttributes(array('class' => 'error'));
 
-/* @var $contactForm \Zend\Form\Form */
-$contactForm = $this->contactForm;
-$contactForm->prepare();
-$contactForm->setAttribute('action', $this->url('contact/process'));
-$contactForm->setAttribute('method', 'post');
+/* @var \MyContact\Form\ContactForm $form */
+$form = $this->contactForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('contact/process'));
+$form->setAttribute('method', 'post');
+
+echo $this->form()->openTag($form);
+echo $this->partial('my-contact/contact/form-fields', array('form' => $form));
+echo $this->form()->closeTag();
+
+$this->placeHolder('MyContactForm')->captureEnd();
+
+if ($this->viewModel()->getCurrent()->terminate()) {
+    echo $this->placeHolder('MyContactForm');
+
+    return;
+}
 
 ?>
-
-<?= $this->form()->openTag($contactForm); ?>
-<dl>
-    <dt><?= $this->formLabel($contactForm->get('name')); ?></dt>
-    <dd>
-        <?= $this->formInput($contactForm->get('name')); ?>
-        <?= $this->formElementErrors($contactForm->get('name')); ?>
-    </dd>
-
-    <dt><?= $this->formLabel($contactForm->get('email')); ?></dt>
-    <dd>
-        <?= $this->formInput($contactForm->get('email')); ?>
-        <?= $this->formElementErrors($contactForm->get('email')); ?>
-    </dd>
-
-    <dt><?= $this->formLabel($contactForm->get('subject')); ?></dt>
-    <dd>
-        <?= $this->formInput($contactForm->get('subject')); ?>
-        <?= $this->formElementErrors($contactForm->get('subject')); ?>
-    </dd>
-
-    <dt><?= $this->formLabel($contactForm->get('body')); ?></dt>
-    <dd>
-        <?= $this->formTextarea($contactForm->get('body')); ?>
-        <?= $this->formElementErrors($contactForm->get('body')); ?>
-    </dd>
-
-    <dt class="captcha"><?= $this->formLabel($contactForm->get('captcha')); ?></dt>
-    <dd class="captcha">
-        <?= $this->formCaptcha($contactForm->get('captcha')); ?>
-        <a class="reload" href="<?=$this->url('contact/index')?>"><img width="24" height="24" src="<?=$this->basePath('img/reload.png')?>" alt="<?=$this->translate('Aggiorna')?>" title="<?=$this->translate('Aggiorna')?>"></a>
-        <?= $this->formElementErrors($contactForm->get('captcha')); ?>
-    </dd>
-
-    <dd>
-        <?= $this->formElement($contactForm->get('csrf')); ?>
-        <?= $this->formInput($contactForm->get('submit')->setAttribute('value', $this->translate('Send', 'MyContact'))); ?>
-    </dd>
-</dl>
-<div class="loading"></div>
-<?= $this->form()->closeTag(); ?>
-
-<script>
-$(function(){
-    var $form = $("#<?=$contactForm->getAttribute('name')?>");
-
-    $form.ajaxForm({
-        beforeSubmit: function(data, $form, options) {
-            $form.find('.loading').fadeIn('fast');
-        },
-        success: function(response, status, xhr, $form) {
-            $form.find(".loading").fadeOut('fast', function(){
-                $form.parent().html(response);
-            });
-        },
-        error: function(jqXHR, status) {
-            $form.find(".loading").fadeOut('fast', function(){
-                $form.parent().html(jqXHR.responseText);
-            });
-        }
-    });
-
-    $form.find(".reload").click(function(){
-        $form.find('.loading').fadeIn('fast');
-        $.get(
-            $(this).attr('href'),
-            function(response, status, jqXHR) {
-                if (status == "error") {
-                    // TODO
-                }
-                $form.find(".loading").fadeOut('fast', function(){
-                    $form.parent().html(response);
-                });
-            }
-        );
-        return false;
-    });
-
-});
-</script>
+<div class="form-wrapper">
+    <?= $this->placeHolder('MyContactForm') ?>
+</div>
