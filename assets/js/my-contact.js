@@ -50,7 +50,7 @@ MyContact = function(config) {
                 return;
             }
 
-            if (! $.ajaxForm) {
+            if (! $.fn.ajaxForm) {
                 yepnope([{
                     load: module.config.jqueryFormPluginUrl,
                     complete: function(){ module.init($form); }
@@ -61,6 +61,5 @@ MyContact = function(config) {
         });
 
     })(jQuery);
-
 
 }
