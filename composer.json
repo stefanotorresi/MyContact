@@ -18,7 +18,7 @@
     "require": {
         "stefanotorresi/my-base": "*"
     },
-    "extras": {
+    "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev",
             "dev-0.x": "0.x-dev"
