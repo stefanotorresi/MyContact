@@ -1,6 +1,7 @@
 {
     "name": "stefanotorresi/my-contact",
     "description": "A ZF2 contact form module based on Matthew Weier O'Phinney's PhlyContact",
+    "license": "MIT",
     "type": "library",
     "keywords": [
         "zf2",
@@ -20,7 +21,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.x-dev",
+            "dev-master": "0.x-dev"
         }
     },
     "autoload": {
